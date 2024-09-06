@@ -1,8 +1,17 @@
-import { BaseEntity, Entity, PrimaryGeneratedColumn } from "typeorm";
+import { BaseEntity, Column, CreateDateColumn, Entity, Generated, PrimaryColumn, UpdateDateColumn } from "typeorm";
+
 
 @Entity('actual')
 export class Actual extends BaseEntity {
-    @PrimaryGeneratedColumn()
-    id: number
+
+    @PrimaryColumn('uuid')
+    @Generated('uuid')
+    uuid: string;
+
+    @CreateDateColumn()
+    createdAt: Date;
+  
+    @UpdateDateColumn()
+    updatedAt: Date;
 
 }
